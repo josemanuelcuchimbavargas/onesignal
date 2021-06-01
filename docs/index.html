@@ -8,7 +8,17 @@
 </head>
 <body>
     <h1>EJEMPLO DE ONE SIGNAL</h1>    
-    <script>    
-      </script>
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+      window.OneSignal = window.OneSignal || [];
+      OneSignal.push(function() {
+        OneSignal.init({
+          appId: "ba563a87-fd9e-4f25-985b-f4b4ea7fb160",
+          notifyButton: {
+            enable: true,
+          },
+        });
+      });
+    </script>
 </body>
 </html>
