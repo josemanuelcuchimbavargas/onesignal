@@ -8,23 +8,23 @@
 </head>
 <body>
     <h1>EJEMPLO DE ONE SIGNAL</h1>    
-    <script src="https://cdn.onesignal.com/sdks/OneSignalSDKWorker.js" async=""></script>    
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
     <script>
-        window.OneSignal = window.OneSignal || [];
+        var OneSignal = OneSignal || [];
         OneSignal.push(function() {
-        OneSignal.on('notificationDisplay', function(event) {
+            OneSignal.init({
+                //appId: "ba563a87-fd9e-4f25-985b-f4b4ea7fb160"
+                appId: "6c5b8d61-f796-4f95-8bba-f587514b6311"
+            });
+        });
+        OneSignal.push(function() {
+            OneSignal.on('notificationDisplay', function(event) {
             console.log('OneSignal notification displayed:', event);
         });    
         OneSignal.on('notificationDismiss', function(event) {
         console.warn('OneSignal notification dismissed:', event);
         });
         OneSignal.setExternalUserId('test');    
-        });
-        OneSignal.push(function() {
-        OneSignal.init({
-            //appId: "ba563a87-fd9e-4f25-985b-f4b4ea7fb160"
-            appId: "6c5b8d61-f796-4f95-8bba-f587514b6311"
-        });
         });
   </script>
 </body>
