@@ -10,21 +10,19 @@
     <h1>EJEMPLO DE ONE SIGNAL</h1>    
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
     <script>
-        var OneSignal = OneSignal || [];
-        OneSignal.push(function() {
-            OneSignal.init({
-                appId: "ba563a87-fd9e-4f25-985b-f4b4ea7fb160"                
+        var OneSignalCliente = window.OneSignal || [];
+        OneSignalCliente.push(function() {
+            OneSignalCliente.on('notificationDisplay', function(event) {
+                console.log('OneSignal notification displayed:', event);
+            });    
+            OneSignalCliente.on('notificationDismiss', function(event) {
+                console.warn('OneSignal notification dismissed:', event);
             });
-        });
-        OneSignal.push(function() {
-            OneSignal.on('notificationDisplay', function(event) {
-            console.log('OneSignal notification displayed:', event);
-        });    
-        OneSignal.on('notificationDismiss', function(event) {
-        console.warn('OneSignal notification dismissed:', event);
-        });
-        OneSignal.setExternalUserId('test');    
-        });
+            OneSignalCliente.setExternalUserId('test');    
+            OneSignalCliente.init({
+                appId: "ba563a87-fd9e-4f25-985b-f4b4ea7fb160"                
+            });   
+        });       
   </script>
 </body>
 </html>
